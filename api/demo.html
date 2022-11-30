@@ -1,0 +1,36 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+    <script
+    src="https://code.jquery.com/jquery-3.6.1.js"
+    integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI="
+    crossorigin="anonymous"></script>
+  
+</head>
+<body>
+    <input type="checkbox" id="ch1" name="ch1" onclick = myfun(); />
+    <p id="current_time" ></p>
+</body>
+<script> 
+function myfun(){
+    var d = new Date();
+   // getTime() is your own function to get the current time.
+    if ($('#ch1').is(':checked')) {
+      
+    
+       var myDate = new Date().toTimeString().replace(/.*(\d{2}:\d{2}:\d{2}).*/, "$1");
+      var date =  new Date().toDateString();
+    console.log(myDate);
+    console.log(date);
+    }
+}
+ 
+
+ </script>
+</html>
