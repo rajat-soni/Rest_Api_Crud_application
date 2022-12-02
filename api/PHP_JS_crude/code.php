@@ -50,14 +50,17 @@ $data = json_decode($_POST["json"]);
 
 
 
+header("Access-Control-Allow-Origin: *");
+header("Access-Control-Allow-Methods: PUT");
 if(isset($_POST['update_student']))
 {
-    $student_id = mysqli_real_escape_string($con, $_POST['student_id']);
+    $data = json_decode($_POST['json']);
+    $student_id = $data->student_id;
 
-    $name = mysqli_real_escape_string($con, $_POST['name']);
-    $email = mysqli_real_escape_string($con, $_POST['email']);
-    $phone = mysqli_real_escape_string($con, $_POST['phone']);
-    $course = mysqli_real_escape_string($con, $_POST['course']);
+    $name = $data->name;
+    $email = $data->email;
+    $phone = $data->phone;
+    $course = $data->course;
 
     if($name == NULL || $email == NULL || $phone == NULL || $course == NULL)
     {
@@ -95,7 +98,8 @@ if(isset($_POST['update_student']))
 
 
 
-
+header("Access-Control-Allow-Origin: *");
+header("Access-Control-Allow-Methods: GET");
 if(isset($_GET['student_id']))
 {
     $student_id = mysqli_real_escape_string($con, $_GET['student_id']);
