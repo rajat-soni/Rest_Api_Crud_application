@@ -36,12 +36,16 @@
                     <input type="text" name="email" id = "view_email" class="form-control" />
                 </div>
                 <div class="mb-3">
+                    <label for="">file</label>
+                    <input type="file" name="email" id = "file" name = "file" class="form-control" />
+                </div>
+                <div class="mb-3">
                     <label for="">Phone</label>
                     <input type="text" name="phone" id ="view_phone" class="form-control" />
                 </div>
                 <div class="mb-3">
                     <label for="">Course</label>
-                    <input type="text" name="course" id = "view_cousre" class="form-control" />
+                    <input type="text" name="course" id = "view_course" class="form-control" />
                 </div>
             </div>
             <div class="modal-footer">
@@ -75,6 +79,11 @@
                 <div class="mb-3">
                     <label for="">Email</label>
                     <input type="text" name="email" id="email" class="form-control" />
+                </div>
+                <div class="mb-3">
+                    <label for="">Avtar</label>
+                    <input type="file" name="file" id="file" class="form-control" />
+                    <img id="avtar" style="width:50px;"/>
                 </div>
                 <div class="mb-3">
                     <label for="">Phone</label>
@@ -113,6 +122,11 @@
                     <p id="view_email_eu" class="form-control"></p>
                 </div>
                 <div class="mb-3">
+                    <label for="">Avtar</label>
+                    <p id="view_file_eu" class="form-control"></p>
+                </div>
+              
+                <div class="mb-3">
                     <label for="">Phone</label>
                     <p id="view_phone_eu" class="form-control"></p>
                 </div>
@@ -148,6 +162,7 @@
                                 <th>ID</th>
                                 <th>Name</th>
                                 <th>Email</th>
+                                <th>Avtar</th>
                                 <th>Phone</th>
                                 <th>Course</th>
                                 <th>Action</th>
@@ -155,32 +170,46 @@
                         </thead>
                         <tbody>
                             <?php
-                            require 'dbcon.php';
-
+                            require 'dbMaster/dbcon.php';
+                           
+                            $sr = 1;
                             $query = "SELECT * FROM employee";
                             $query_run = mysqli_query($con, $query);
-
-                            if(mysqli_num_rows($query_run) > 0)
-                            {
-                                foreach($query_run as $student)
-                                {
+                            $res = array();
+                            if (mysqli_num_rows($query_run) > 0){
+                            
+                                while($row = mysqli_fetch_array($query_run)){   
+                                   
+                                    $res[] = $row;  
+                                    $image = $row['file']; 
+                                 
+                                                         
                                     ?>
                                     <tr>
-                                        <td><?= $student['id'] ?></td>
-                                        <td><?= $student['name'] ?></td>
-                                        <td><?= $student['email'] ?></td>
-                                        <td><?= $student['phone'] ?></td>
-                                        <td><?= $student['course'] ?></td>
+                                        <td><?php echo  $sr; ?></td>
+                                        <td><?php echo  $row['name'] ?></td>
+                                        <td><?php echo  $row['email'] ?></td>
+                                        <td style= "width:10%;"><img alt ="Avtaar is not uploaded" style="width: 80px; height:50px; margin: 0px auto;" src = "image/<?php echo $row['file'];?>"></td>
+
+                                        <td><?php echo $row['phone'] ?></td>
+                                        <td><?php  echo $row['course'] ?></td>
                                         <td>
-                                            <button type="button" value="<?=$student['id'];?>"  class="viewStudentBtn btn btn-info btn-sm">View</button>
-                                            <button type="button" value="<?=$student['id'];?>" class="editStudentBtn btn btn-success btn-sm">Edit</button>
-                                            <button type="button" value="<?=$student['id'];?>" class="deleteStudentBtn btn btn-danger btn-sm">Delete</button>
+                                            <button type="button" value="<?php echo $row['id'];?>"  class="viewStudentBtn btn btn-info btn-sm">View</button>
+                                            <button type="button" value="<?php  echo $row['id'];?>" class="editStudentBtn btn btn-success btn-sm">Edit</button>
+                                            <button type="button" value="<?php echo $row['id'];?>" class="deleteStudentBtn btn btn-danger btn-sm">Delete</button>
                                         </td>
                                     </tr>
                                     <?php
-                                }
-                            }
-                            ?>
+                                   $sr++;
+                                }  
+                                
+                                ?>
+                                <?php
+                                json_encode(array("msg" => "Success", 'status' => 'success'));
+}
+?>
+
+                             
                             
                         </tbody>
                     </table>
@@ -198,194 +227,10 @@
     <script src = "assest/addRecord.js"></script>
     <script src = "assest/updateRecord.js"></script>
     <script src = "assest/veiwRecord.js"></script>
+    <script src = "assest/delete.js"></script>
     
-    <script>
-    
-       
-
-       
-        $(document).on('click', '.deleteStudentBtn', function (e) {
-            e.preventDefault();
-
-            if(confirm('Are you sure you want to delete this data?'))
-            {
-                var student_id = $(this).val();
-                $.ajax({
-                    type: "POST",
-                    url: "code.php",
-                    data: {
-                        'delete_student': true,
-                        'student_id': student_id
-                    },
-                    success: function (response) {
-
-                        var res = jQuery.parseJSON(response);
-                        if(res.status == 500) {
-
-                            alert(res.message);
-                        }else{
-                            alertify.set('notifier','position', 'top-right');
-                            alertify.success(res.message);
-
-                            $('#myTable').load(location.href + " #myTable");
-                        }
-                    }
-                });
-            }
-        });
-
-    </script>
-
 </body>
 </html>
 
 
 
-
-<?php
-
-require 'dbcon.php';
-
-if(isset($_POST['save_student']))
-{
-    $name = mysqli_real_escape_string($con, $_POST['name']);
-    $email = mysqli_real_escape_string($con, $_POST['email']);
-    $phone = mysqli_real_escape_string($con, $_POST['phone']);
-    $course = mysqli_real_escape_string($con, $_POST['course']);
-
-    if($name == NULL || $email == NULL || $phone == NULL || $course == NULL)
-    {
-        $res = [
-            'status' => 422,
-            'message' => 'All fields are mandatory'
-        ];
-        echo json_encode($res);
-        return;
-    }
-
-    $query = "INSERT INTO employee (name,email,phone,course) VALUES ('$name','$email','$phone','$course')";
-    $query_run = mysqli_query($con, $query);
-
-    if($query_run)
-    {
-        $res = [
-            'status' => 200,
-            'message' => 'Student Created Successfully'
-        ];
-        echo json_encode($res);
-        return;
-    }
-    else
-    {
-        $res = [
-            'status' => 500,
-            'message' => 'Student Not Created'
-        ];
-        echo json_encode($res);
-        return;
-    }
-}
-
-
-if(isset($_POST['update_student']))
-{
-    $student_id = mysqli_real_escape_string($con, $_POST['student_id']);
-
-    $name = mysqli_real_escape_string($con, $_POST['name']);
-    $email = mysqli_real_escape_string($con, $_POST['email']);
-    $phone = mysqli_real_escape_string($con, $_POST['phone']);
-    $course = mysqli_real_escape_string($con, $_POST['course']);
-
-    if($name == NULL || $email == NULL || $phone == NULL || $course == NULL)
-    {
-        $res = [
-            'status' => 422,
-            'message' => 'All fields are mandatory'
-        ];
-        echo json_encode($res);
-        return;
-    }
-
-    $query = "UPDATE employee SET name='$name', email='$email', phone='$phone', course='$course' 
-                WHERE id='$student_id'";
-    $query_run = mysqli_query($con, $query);
-
-    if($query_run)
-    {
-        $res = [
-            'status' => 200,
-            'message' => 'Student Updated Successfully'
-        ];
-        echo json_encode($res);
-        return;
-    }
-    else
-    {
-        $res = [
-            'status' => 500,
-            'message' => 'Student Not Updated'
-        ];
-        echo json_encode($res);
-        return;
-    }
-}
-
-
-if(isset($_GET['student_id']))
-{
-    $student_id = mysqli_real_escape_string($con, $_GET['student_id']);
-
-    $query = "SELECT * FROM employee WHERE id='$student_id'";
-    $query_run = mysqli_query($con, $query);
-
-    if(mysqli_num_rows($query_run) == 1)
-    {
-        $student = mysqli_fetch_array($query_run);
-
-        $res = [
-            'status' => 200,
-            'message' => 'Student Fetch Successfully by id',
-            'data' => $student
-        ];
-        echo json_encode($res);
-        return;
-    }
-    else
-    {
-        $res = [
-            'status' => 404,
-            'message' => 'Student Id Not Found'
-        ];
-        echo json_encode($res);
-        return;
-    }
-}
-
-if(isset($_POST['delete_student']))
-{
-    $student_id = mysqli_real_escape_string($con, $_POST['student_id']);
-
-    $query = "DELETE FROM employee WHERE id='$student_id'";
-    $query_run = mysqli_query($con, $query);
-
-    if($query_run)
-    {
-        $res = [
-            'status' => 200,
-            'message' => 'Student Deleted Successfully'
-        ];
-        echo json_encode($res);
-        return;
-    }
-    else
-    {
-        $res = [
-            'status' => 500,
-            'message' => 'Student Not Deleted'
-        ];
-        echo json_encode($res);
-        return;
-    }
-}
-
-?>

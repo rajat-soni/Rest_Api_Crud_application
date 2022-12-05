@@ -7,14 +7,17 @@ $(document).on('click', '.editStudentBtn', function () {
     student_id: student_id,
   student_name:$(this).parent().first().parent().children().eq(1).html(),
   student_email:$(this).parent().first().parent().children().eq(2).html(),
-   student_phone:$(this).parent().first().parent().children().eq(3).html(),
-   student_course:$(this).parent().first().parent().children().eq(4).html()
+  student_file:$(this).parent().first().parent().children().eq(3).children().eq(0).attr("src"),
+   student_phone:$(this).parent().first().parent().children().eq(4).html(),
+   student_course:$(this).parent().first().parent().children().eq(5).html()
 }
 
  $('#student_id').val(data['student_id']);
 
 $('#name').val(data.student_name);
 $('#email').val(data.student_email);
+$('#avtar').attr("src",data.student_file);
+
 $('#phone').val(data.student_phone);
 $('#course').val(data.student_course);
 
@@ -35,6 +38,7 @@ $(document).on('submit', '#updateStudent', function (e) {
         student_id: $('#student_id').val(),
       name:$('#name').val(),
       email:$('#email').val(),
+      file:$('#file').val(),
        phone:$('#phone').val(),
        course:$('#course').val()
     }
@@ -45,7 +49,7 @@ $(document).on('submit', '#updateStudent', function (e) {
 
     $.ajax({
         type: "POST",
-        url: "code.php",
+        url: "codeMaster/update.php",
         data: formData,
         processData: false,
         contentType: false,

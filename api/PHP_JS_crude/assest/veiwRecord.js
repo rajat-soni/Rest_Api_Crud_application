@@ -3,7 +3,7 @@ $(document).on('click', '.viewStudentBtn', function () {
     var student_id = $(this).val();
     $.ajax({
         type: "GET",
-        url: "code.php?student_id=" + student_id,
+        url: "codeMaster/view.php?student_id=" + student_id,
         success: function (response) {
 
             var res = jQuery.parseJSON(response);
@@ -19,6 +19,7 @@ $(document).on('click', '.viewStudentBtn', function () {
 
                 $('#view_name_eu').text(res.data.name);
                 $('#view_email_eu').text(res.data.email);
+                $('#view_file_eu').html(res.data.file);
                 $('#view_phone_eu').text(res.data.phone);
                 $('#view_course_eu').text(res.data.course);
 

@@ -5,14 +5,16 @@
 
             var name = $("#view_name").val();
             var email = $("#view_email").val();
+            var file = $('input:file')[0].files[0];
             var phone= $("#view_phone").val();
-            var course = $("#view_cousre").val();
+            
+            var course = $("#view_course").val();
             var formData = new FormData();
             formData.append('json',  JSON.stringify({name:name, email:email, phone:phone, course:course})   );
-            formData.append('save_student', 'yes');
+            formData.append('file', file);
             $.ajax({
                 type: "POST",
-                url: "code.php",
+                url: "codeMaster/add.php",
                 data: formData,
                 enctype: 'multipart/form-data',
                 processData: false,
