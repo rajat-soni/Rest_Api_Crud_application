@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<style>
+.democlass {
+  color: red;
+}
+</style>
+
+
+
+<body>
+    <!-- important code  <input type="text" id="elem" value="value">
+
+<script>
+  alert(elem.type); // "text"
+  alert(elem.id); // "elem"
+  alert(elem.value); // value
+</script> -->
+
+<div id="elem">A blinking element</div>
+</body>
+<script>
+  setInterval(() => elem.hidden = !elem.hidden, 1000);
+</script>
+</html>

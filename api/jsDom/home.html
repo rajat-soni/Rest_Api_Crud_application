@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<style>
+.democlass {
+  color: red;
+}
+</style>
+
+<body>
+<h1 class="democlass">The Element Object</h1>
+<h2>The removeAttributeNode() Method</h2>
+
+<p>Click "Remove" to remove the class attribute node from the first h1 element.</p>
+
+<button onclick="myFunction()">Remove</button>
+
+<script>
+function myFunction() {
+  const element = document.getElementsByTagName("H1")[0];
+ 
+  console.log(element);
+  const attr = element.getAttributeNode("class");
+  element.removeAttributeNode(attr);
+}
+</script>
+
+</body>
+</html>

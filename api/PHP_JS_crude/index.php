@@ -8,7 +8,7 @@
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 
-    <title>PHP CRUD using jquery ajax without page reload</title>
+    <title>One Page Application</title>
 
     <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/alertify.min.css"/>
 </head>
@@ -146,10 +146,10 @@
     <div class="row">
         <div class="col-md-12">
             <div class="card">
-                <div class="card-header">
-                    <h4>PHP Ajax CRUD without page reload using Bootstrap Modal
+                <div class="card-header bg-dark">
+                    <h4>One Page Application
                         
-                        <button type="button" class="btn btn-primary float-end" data-bs-toggle="modal" data-bs-target="#studentAddModal">
+                        <button type="button" class="btn btn-danger float-end" data-bs-toggle="modal" data-bs-target="#studentAddModal">
                             Add Student
                         </button>
                     </h4>

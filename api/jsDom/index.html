@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+</head> 
+<body>
+    <h2 id = div1 ><b>RAjat</b>Change text in Paragraph using JavaScript</h2>
+    <p id="myPara">This is a paragraph</p>
+    <button type="button" onclick="changeText()" id = "CGF">Click Me</button>
+    <script>
+    
+    //     var element = document.getElementById("div1").innerHTML;
+     
+    //   var element2 = document.getElementById("myPara").innerHTML = element
+    //     console.log(element2);
+
+        function changeText() {
+            var x = document.getElementById("myPara");
+            var y = document.getElementById("div1");
+              
+            if (x.innerHTML === "This is a paragraph") {
+                y.innerHTML = "add me";
+                if(y.innerHTML === "add"){
+                    
+                    x.innerHTML ="This is a paragraph"
+                }else{
+
+                    y.innerHTML === "add";
+                }
+            } else {
+                x.innerHTML = "This is a paragraph.";
+            }
+        }
+    </script>
+    
+    </script>
+</body>
+</html>

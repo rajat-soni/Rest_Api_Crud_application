@@ -6,10 +6,10 @@ require '../dbMaster/dbcon.php';
 header("Access-Control-Allow-Origin: *");
 header("Access-Control-Allow-Methods: POST");
 
-$data = json_decode($_POST["json"]);
 if($_SERVER['REQUEST_METHOD'] === 'POST') 
 {
 
+    $data = json_decode($_POST["json"]);
    $name = $data->name;
    $email = $data->email;
    $file_with_name = $_FILES["file"]["name"];
