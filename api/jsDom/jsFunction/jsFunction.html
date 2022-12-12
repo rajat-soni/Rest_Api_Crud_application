@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+    <head>
+<style>
+#list {
+    margin: 0 auto;
+    padding: 2% 1% 1% 2%;
+ width: 400px;
+ height: 100px;
+ border: dashed black 1px;
+
+ 
+}
+
+#elem {
+    margin: 0 auto;
+    padding: 0 auto;
+}
+</style>
+</head>
+
+
+<body>
+
+<div id="list">Hello<br><br>
+    <input id="elem" type="button" value="Click me">
+    <input value="Click me" onclick="alert('Click!')" type="button">
+    <button type = "buttton"  onclick="alert(this.innerHTML)" type="button">save</button>
+</div>
+
+
+</boby>
+<script>
+  var para = document.getElementById('list');
+  var btn = document.getElementById('elem');
+
+btn.onclick = () => {
+   if(para.innerText === 'Hello'){
+   para.style.color = 'red'
+   }else{
+     para.style.color = 'green'
+   }
+}
+</script>
+
+</html>

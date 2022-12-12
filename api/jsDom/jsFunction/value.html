@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+    <title>Hide element by click</title>
+    <head>
+<style>
+#list {
+    margin: 0 auto;
+    padding: 2% 1% 1% 2%;
+ width: 400px;
+ height: 100px;
+ border: dashed black 1px;
+
+ 
+}
+
+#elem {
+    margin: 0 auto;
+    padding: 0 auto;
+}t
+</style>
+</head>
+
+
+<body>
+
+    <input value="Focus works" onfocus="this.value=''">
+    <input onmousedown="return true" onfocus = "this.value = 'Please write here'" value="click me">
+    <input onmousedown="return false" onfocus = "this.value = ''" value="click me">
+    <a href="https://w3.org" onclick="return handler()">w3.org</a>
+
+
+
+
+</boby>
+<script>
+  
+
+  function handler() {
+    alert("hello");
+    return false;
+  }
+</script>
+
+
+
+
+
+</html>

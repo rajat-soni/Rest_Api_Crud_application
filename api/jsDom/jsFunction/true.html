@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+    <head>
+<style>
+#list {
+    margin: 0 auto;
+    padding: 2% 1% 1% 2%;
+ width: 400px;
+ height: 100px;
+ border: dashed black 1px;
+
+ 
+}
+
+#elem {
+    margin: 0 auto;
+    padding: 0 auto;
+}
+</style>
+</head>
+
+
+<body>
+    <ul id="menu" class="menu">
+        <li><a href="/html">HTML</a></li>
+        <li><a href="/javascript">JavaScript</a></li>
+        <li><a href="/css">CSS</a></li>
+      </ul>
+
+
+</boby>
+<script>
+    var menu = document.getElementById('menu')
+    menu.onclick = function(event) {
+  if (event.target.nodeName != 'A') return;
+
+  let href = event.target.getAttribute('href');
+  alert(href);
+
+  return false; // prevent url change
+};
+  
+</script>
+
+</html>
