@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<style>
+
+#wrapper{
+    border: 1px solid black;
+}
+</style>
+</style>
+</head> 
+<body>
+<div id = "wrapper"></div>
+<script>
+"use strict";
+
+var formdiv = document.getElementById('wrapper')
+let form = document.createElement('form');
+form.action = 'https://google.com/search';
+form.method = 'GET';
+
+form.innerHTML = '<input name="q" value="test">';
+
+// the form must be in the document to submit it
+formdiv.append(form);
+console.log(formdiv.append(form))
+
+// form.submit();
+</script>
+</body>
+</html>

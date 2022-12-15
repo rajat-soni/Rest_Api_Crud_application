@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<style>
+   .myStyle {
+  background-color: coral;
+  padding: 16px;
+}
+.newStyle {
+  background-color: lightblue;
+
+  font-size: 25px;
+  padding: 16px;
+  display: block;
+}
+</style>
+</head> 
+<body>
+    <h2 id = new>Change the class with toggle</h2>
+    <h2 id = old class="myStyle" ><b>RAjat</b>Change text in Paragraph using JavaScript</h2>
+    
+    <button type="button" name = "add" id = "CGF">Click Me</button>
+    <script>
+
+           var btn =  document.getElementById('CGF');
+         
+           var di =  document.getElementById('old')
+
+           btn.addEventListener('click', function(){
+          if(di.className == 'myStyle'){
+            di.className = 'newStyle';
+          }else{
+            di.className = 'myStyle';
+          }
+           })
+
+        
+            
+    </script>
+    
+    </script>
+</body>
+</html>

@@ -13,14 +13,16 @@
 
     <script>
         const pwd = document.querySelector('input[type="password"]');
+       const inp =  document.querySelector('input[type="username"]')
 
         pwd.addEventListener('focus', (e) => {
             e.target.style.backgroundColor = 'yellow';
         });
 
-        pwd.addEventListener('blur', (e) => {
-            e.target.style.backgroundColor = '';
+        inp.addEventListener('blur', (e) => {
+            e.target.style.backgroundColor = 'green';
         });
+
     </script>
 </body>
 </html>
