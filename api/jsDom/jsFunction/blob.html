@@ -1,0 +1,11 @@
+<!doctype html>
+<body>
+<!-- download attribute forces the browser to download instead of navigating -->
+<a download="Rajat.json" href='#' id="link">Download</a>
+
+<script>
+let blob = new Blob(["Hello, world!"], {type: 'json/plain'});
+
+link.href = URL.createObjectURL(blob);
+</script>
+</body>

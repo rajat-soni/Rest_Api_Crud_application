@@ -1,0 +1,16 @@
+<!doctype html>
+<body>
+<input type="file" id = "img" onchange="showFile()">
+
+<script>
+    function showFile() {
+    var img = document.getElementById('img')
+    console.log(img)
+
+  let file = img.files[0];
+
+  alert(`File name: ${file.name}`); // e.g my.png
+  alert(`Last modified: ${file.lastModified}`); // e.g 1552830408824
+}
+</script>
+</body>

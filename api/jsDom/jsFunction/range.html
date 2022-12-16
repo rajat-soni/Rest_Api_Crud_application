@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>JavaScript Focus Events</title>
+</head>
+<body>
+    <p>Get the range by sentence by input the values</p>
+    <p id="p">Example: <i>italic</i> and <b>bold</b></p>
+
+    <form id="form">
+       
+        Start Range<input type="text" placeholder="type range"  id ="start" value = "">
+        -To End Range<input type="text" placeholder="type range"  id = "end" value = "">
+        <button id="button">Click to select</button>
+    </form>
+
+    <script>
+      var start =  document.getElementById('start');
+      var end   =  document.getElementById('end');
+      var p     =  document.getElementById('p');
+       
+      
+
+
+      button.onclick = function(e){
+      e.preventDefault()
+      var startS = start.value;
+      var endE = end.value;
+      let range = new Range();
+    range.setStart(p, start.value)
+    range.setEnd(p, end.value) 
+    if (start.value != "" && end.value != "" ){ 
+        document.getSelection().removeAllRanges();
+       document.getSelection().addRange(range)
+    }else{
+    
+   
+    // apply the selection, explained later below
+  
+    alert("Range should not be empty")
+
+    } 
+    
+ }
+    </script>
+</body>
+</html>
