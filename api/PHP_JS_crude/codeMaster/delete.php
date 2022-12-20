@@ -4,11 +4,11 @@ require '../dbMaster/dbcon.php';
 
 
 
-
+header("Access-Control-Allow-Origin: *");
+header("Access-Control-Allow-Methods: GET");
 if(isset($_POST['delete_student']))
 {
-    header("Access-Control-Allow-Origin: *");
-header("Access-Control-Allow-Methods: GET");
+    
     $student_id = mysqli_real_escape_string($con, $_POST['student_id']);
 
     $query = "DELETE FROM employee WHERE id='$student_id'";
