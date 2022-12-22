@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+    <head>
+</head>
+
+
+<body>
+ <input type = "text" name = "name" placeholder = "type here your name" id = "txtdata"  hidden >
+ <input type ="submit" name = "submit" value = "submit data" id = "btn">
+
+<script>
+   let txt = document.getElementById('txtdata')
+   let btn = document.getElementById('btn');
+   
+   btn.addEventListener('click',(event) =>{
+    if(event.target != btn) return;
+  let txtHiden = txt.hidden = false; 
+
+});
+
+</script>
+</boby> 
+</html>
