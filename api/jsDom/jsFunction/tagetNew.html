@@ -39,24 +39,29 @@
   }
   </style>
 </head>
-<script>
-form.onclick = function(event) {
-    event.target.style.backgroundColor = 'yellow';
-  
-    // chrome needs some time to paint yellow
-    setTimeout(() => {
-      alert("target = " + event.target.tagName + ", this=" + this.tagName);
-      event.target.style.backgroundColor = ''
-    }, 0);
-  };</script>
-<body>
-  A click shows both <code>event.target</code> and <code>this</code> to compare:
 
-  <form id="form">FORM
-    <div>DIV
-      <p>P</p>
-    </div>
-  </form>
+
+
+  <body>
+    A click shows both <code>event.target</code> and <code>this</code> to compare:
+  
+    <form id="form">FORM
+      <div>DIV
+        <p>P</p>
+      </div>
+    </form>
+
+  <script>
+    form.onclick = function(event) {
+  event.target.style.backgroundColor = 'yellow';
+
+  // chrome needs some time to paint yellow
+  setTimeout(() => {
+    alert("target = " + event.target.tagName + ", this=" + this.tagName);
+    event.target.style.backgroundColor = ''
+  }, 0);
+};
+ </script>
 
 </body>
 </html>
