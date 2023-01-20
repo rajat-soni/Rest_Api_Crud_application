@@ -7,7 +7,7 @@ $(document).on('click', '.editStudentBtn', function () {
     student_id: student_id,
   student_name:$(this).parents('tr').find('td:eq(1)').html(),
   student_email:$(this).parents('tr').find('td:eq(2)').html(),
-  student_file:$(this).parent().first().parent().children().eq(3).children().eq(0).attr("src"),
+  student_file:$(this).parent().first().parent().children().eq(3).children().html(),
    student_phone:$(this).parents('tr').find('td:eq(4)').html(),
    student_course:$(this).parent().first().parent().children().eq(5).html()
 }

@@ -19,6 +19,7 @@ header("Access-Control-Allow-Methods: POST");
 $data = json_decode($_POST["json"]);
 
 
+
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 $emp_id = $data->emp_id;  

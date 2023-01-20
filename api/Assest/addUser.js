@@ -22,25 +22,25 @@ formData.append('json',  JSON.stringify({emp_id : emp_id, name: name, lastname: 
 // Attach file
 formData.append('file', file ); 
         $.ajax({
-            url : 'http://localhost:3000/add_master_folder/addUserData.inc.php',
+            url : '../add_master_folder/addUserData.inc.php',
             type : 'POST',
-            contentType: false, // NEEDED, DON'T OMIT THIS (requires jQuery 1.6+)
+            contentType: appplication/json, // NEEDED, DON'T OMIT THIS (requires jQuery 1.6+)
             processData: false, // NEEDED, DON'T OMIT THIS
             enctype: 'multipart/form-data',
             cache: false,
             data :formData,
        
-                beforeSend: function(){
-                    /* Show image container */
-                    $("#loader").show();
-                    return true;
-                   },
+                // beforeSend: function(){
+                //     /* Show image container */
+                //     $("#loader").show();
+                //     return true;
+                //    },
             
  
             success : function(result){
                
                     var data = JSON.parse(result);
-                
+                    console.log(result)
                     if(data.status == 'success'){
                         // $('#Form')[0].reset();
                          $("#loader").hide();

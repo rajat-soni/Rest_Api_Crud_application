@@ -100,7 +100,7 @@ if ($result->num_rows > 0) {
       
       <td><?php echo $row['name'];?></td>
       <td><?php echo $row['lastname'];?></td>
-      <td style= "width:10%;"><img alt ="Avtaar is not uploaded" style="width: 80px; height:50px; margin: 0px auto;" src = "../image/<?php echo $row['file'];?>"></td>
+      <td style= "width:10%;"><img alt ="Avtaar is not uploaded" style="width: 80px; height:50px; margin: 0px auto;" src = "image/<?php echo $image;?>"></td>
       <td><?php echo $row['mobile'];?></td>
       <td><?php echo $row['address'];?></td>
       <td><?php echo $row['email'];?></td>
