@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Dynamic DropDown List | Javacodepoint 
+    </title>  
+  </head>
+  <body>    
+    <button onclick="dynamicDropdownList()">Create Dynamic Dropdown List
+    </button>	
+    <br>
+    <br>
+    <div id="dropdown-container">
+    </div> 
+    <script>//country data in json array format
+      var countries = [{
+                        "code":"AU",
+                        "name":"Australia"
+                        }
+                       ,{
+                         "code":"FR",
+                         "name":"France"
+                       }
+                       ,{
+                         "code":"IN",
+                         "name":"India"
+                       }
+                       ,{
+                         "code":"JP",
+                         "name":"Japan"
+                       }
+                       ,{
+                         "code":"CH",
+                         "name":"Switzerland"
+                       }
+                       ,{
+                         "code":"GB",
+                         "name":"United Kingdom"
+                       }
+                       ,{
+                         "code":"US",
+                         "name":"United States"
+                       }
+                      ];
+      //This method calls on button click
+      function dynamicDropdownList(){
+        var dropdown = document.createElement("select");
+        for(var i=0;i<countries.length;i++){
+          var opt = document.createElement("option");
+          opt.text = countries[i].name;
+          opt.value = countries[i].code;
+          dropdown.options.add(opt);
+        }
+        //Load the dynamically created dropdown in container
+        var container=document.getElementById("dropdown-container");
+        container.appendChild(dropdown);
+      }
+    </script> 
+  </body>
+</html>

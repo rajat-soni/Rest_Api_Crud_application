@@ -1,0 +1,26 @@
+<!Doctype HTML>
+<body>
+<button data-toggle-id="subscribe-mail" id = "btn">
+  Show the subscription form
+</button>
+
+<form id="subscribe-mail" hidden>
+  Your mail: <input type="email">
+</form>
+
+<script>
+ btn.onclick = (event) =>{
+    let id = event.target.dataset.toggleId;
+    if (!id) return;
+ 
+  //document.addEventListener('click', function(event) {
+    //let id = event.target.dataset.toggleId;
+    
+
+    let elem = document.getElementById(id);
+   
+
+    elem.hidden = !elem.hidden;
+ };
+</script>
+</body> 

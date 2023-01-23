@@ -1,4 +1,4 @@
-<!doctype html>
+<!Doctype HTML>
 <body>
 <button data-toggle-id="subscribe-mail">
   Show the subscription form
@@ -9,13 +9,18 @@
 </form>
 
 <script>
-  document.addEventListener('click', function(event) {
-    let id = event.target.dataset.toggleId;
-    if (!id) return;
 
-    let elem = document.getElementById(id);
+    document.addEventListener('click', function(event) {
+        let id = event.target.dataset.toggleId;
+        if (!id) return;
 
-    elem.hidden = !elem.hidden;
-  });
+        let elem = document.getElementById(id);
+        console.log(elem)
+
+        elem.hidden = !elem.hidden;
+    });
+
 </script>
-</body>
+
+
+</body> 
