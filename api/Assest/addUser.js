@@ -24,7 +24,7 @@ formData.append('file', file );
         $.ajax({
             url : '../add_master_folder/addUserData.inc.php',
             type : 'POST',
-            contentType: appplication/json, // NEEDED, DON'T OMIT THIS (requires jQuery 1.6+)
+           contentType: false, // NEEDED, DON'T OMIT THIS (requires jQuery 1.6+)
             processData: false, // NEEDED, DON'T OMIT THIS
             enctype: 'multipart/form-data',
             cache: false,
@@ -40,7 +40,7 @@ formData.append('file', file );
             success : function(result){
                
                     var data = JSON.parse(result);
-                    console.log(result)
+                 
                     if(data.status == 'success'){
                         // $('#Form')[0].reset();
                          $("#loader").hide();

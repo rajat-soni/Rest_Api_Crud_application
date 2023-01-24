@@ -45,6 +45,7 @@
       function dynamicDropdownList(){
         var dropdown = document.createElement("select");
         for(var i=0;i<countries.length;i++){
+            console.log(countries.length);
           var opt = document.createElement("option");
           opt.text = countries[i].name;
           opt.value = countries[i].code;
